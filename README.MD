@@ -1,6 +1,5 @@
 # Run the project
-1. Start docker
-2. 
+
 ```bash
 $ corepack enable pnpm # if you don't have pnpm installed
 $ pnpm install
