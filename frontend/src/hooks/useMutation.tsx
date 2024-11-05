@@ -16,6 +16,7 @@ export const useMutation = <TResponse, TBody extends Record<string, unknown>>(
   const mutate = useCallback(
     async (body: TBody) => {
       setLoading(true);
+      setError(null);
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}${url}`, {
           method,
