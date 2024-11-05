@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { User } from 'types';
+import { UpdateUserBody, User, UserStatus } from 'types';
 import { useMutation } from '../../hooks/useMutation.tsx';
 import { Card } from '../../components/Card.tsx';
 import { Avatar } from '../../components/Avatar.tsx';
@@ -12,7 +12,11 @@ interface EmployeeCardProps {
 }
 
 export function EmployeeCard({ user, onStatusUpdate }: EmployeeCardProps) {
-  const { mutate, loading, error } = useMutation(`/users/${user.id}`, 'PATCH');
+  const { mutate, loading, error, data } = useMutation<User, UpdateUserBody>(`/users/${user.id}`, 'PATCH');
+
+  if (data) {
+    user = data;
+  }
 
   return (
     <Card className="flex gap-6 p-6 hover:shadow-xl hover:shadow-primary/30">
@@ -22,7 +26,7 @@ export function EmployeeCard({ user, onStatusUpdate }: EmployeeCardProps) {
         <Select
           defaultValue={user.status}
           onChange={async (e) => {
-            await mutate({ status: e.target.value });
+            await mutate({ status: e.target.value as UserStatus });
             onStatusUpdate();
           }}
           disabled={loading}

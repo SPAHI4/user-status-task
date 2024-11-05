@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-export const useMutation = <TResponse, TBody extends Record<string, unknown>>(
+export const useMutation = <TResponse, TBody extends Record<string, any>>(
   url: string,
   method: 'POST' | 'PUT' | 'PATCH' | 'DELETE',
 ): {
