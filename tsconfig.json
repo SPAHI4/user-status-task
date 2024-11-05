@@ -1,0 +1,12 @@
+{
+  "files": ["eslint.config.js", "codegen.ts", "vitest.workspace.ts", "apollo-helpers-plugin.cjs"],
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "references": [
+    { "path": "./frontend/tsconfig.app.json" },
+    { "path": "./frontend/tsconfig.node.json" },
+    { "path": "./backend" }
+  ]
+}
