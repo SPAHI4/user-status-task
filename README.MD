@@ -5,15 +5,6 @@ $ corepack enable pnpm # if you don't have pnpm installed
 $ pnpm install
 $ pnpm run dev
 ```
-3.
-```bash
-$ pnpm --filter backend init-db
-$ pnpm dev
-```
-## test
-```bash
-pnpm test
-```
 
 # My steps:
 
